@@ -6,10 +6,26 @@ const connect = function () {
     host: "localhost", // IP address here,
     port: 50541, // PORT number here,
   });
-  conn.on("connect", ()=>{
-  console.log("Successfully connected to game server");
-  conn.write("Name: SMV");
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server");
+    conn.write("Name: SMV");
+    /* 
+  let delay = 0;    
+  for (let i=0;i<5;i++) {
+    interval= setTimeout(() => {
+      conn.write("Move: up");     
+    }, delay += 1000); // <= 1s delay to make it noticeable. Can dial it down later.
+  } 
+ */
+    /*let i = 0;
+    const interval = setInterval(() => {
+      conn.write("Move: up");
+      i++;
+      if (i == 5) clearInterval(interval);
+    }, 1000);
+    */
   });
+  
   conn.on("data", (data) => {
     console.log("Server says: " + data);
   });
