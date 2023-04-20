@@ -25,7 +25,7 @@ const connect = function () {
     }, 1000);
     */
   });
-  
+  // handling data received from the server
   conn.on("data", (data) => {
     console.log("Server says: " + data);
   });
