@@ -6,19 +6,24 @@ const handleUserInput = function (key) {
   if (key === "\u0003") {
     process.exit(); // terminate the program if ctrl+C is pressed
   }
-  if(key === "w" || key === "W"){
+  if (key === "w" || key === "W") {
     connection.write("Move: up");
   }
-  if(key === "a" ||key === "A"){
+  if (key === "a" || key === "A") {
     connection.write("Move: left");
   }
-  if(key === "s" ||key === "S"){
+  if (key === "s" || key === "S") {
     connection.write("Move: down");
   }
-  if(key === "d" ||key === "D"){
+  if (key === "d" || key === "D") {
     connection.write("Move: right");
   }
-  
+  if (key === "z" || key === "Z") {
+    connection.write("Say: I'm coming");
+  }
+  if (key === "x" || key === "X") {
+    connection.write("Say: sssssss");
+  }
 };
 // setup interface to handle user input from stdin
 const setupInput = function (conn) {
@@ -30,4 +35,4 @@ const setupInput = function (conn) {
   stdin.on("data", handleUserInput);
   return stdin;
 };
-module.exports= {setupInput};
+module.exports = { setupInput };
